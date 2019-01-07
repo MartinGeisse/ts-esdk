@@ -84,7 +84,7 @@ namespace Core {
     export class VectorRegister extends Register {
         validateUpdate(oldState : any, stateUpdate : any) : boolean {
             let oldVector : Vector = oldState as Vector;
-            return (stateUpdate instanceof Vector) && (stateUpdate.length == oldState.length);
+            return (stateUpdate instanceof Vector) && (stateUpdate.width() == oldState.width());
         }
     }
 
