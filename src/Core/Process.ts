@@ -22,6 +22,9 @@ namespace Core {
         private __stateUpdate : StateUpdate;
         [key : string] : any;
 
+        // TODO use type parameter to ensure matching types for stateDescriptor and stateMapper!
+        // BUT: cannot handle state updates with different types (e.g. memory)!
+
         public constructor(stateDescriptor : StateDescriptor, stateMapper : StateMapper) {
             for (let key in stateDescriptor) {
                 let element = stateDescriptor[key];

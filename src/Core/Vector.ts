@@ -14,7 +14,10 @@ namespace Core {
         abstract width() : number;
         abstract get(index : number) : boolean;
 
-        add(other : Vector) : Vector {
+        add(other : Vector|number) : Vector {
+            if (typeof other == 'number') {
+                other = unsigned(this.width(), other);
+            }
             if (other.width() != this.width()) {
                 throw 'trying to add vectors of width ' + this.width() + ' and ' + other.width();
             }
@@ -41,7 +44,10 @@ namespace Core {
             return this.not().add(one(this.width()));
         }
 
-        subtract(other : Vector) : Vector {
+        subtract(other : Vector|number) : Vector {
+            if (typeof other == 'number') {
+                other = unsigned(this.width(), other);
+            }
             if (other.width() != this.width()) {
                 throw 'trying to subtract vectors of width ' + this.width() + ' and ' + other.width();
             }

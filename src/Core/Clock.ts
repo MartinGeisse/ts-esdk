@@ -25,6 +25,12 @@ namespace Core {
             }
         }
 
+        process(stateDescriptor : StateDescriptor, stateMapper : StateMapper) : Process {
+            var process : Process = new Process(stateDescriptor, stateMapper);
+            this.add(process);
+            return process;
+        }
+
     }
 
     export interface ClockListener {
